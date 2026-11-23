@@ -71,7 +71,7 @@ function showSurprise() {
     /* WhatsApp Message */
     const message =
       const message =
-    "Hey " + name +
+    "Hy " + name +
     "! Thank you for your wishes! ❤️\n\nWELCOME 👋";
 
     const whatsappURL =
