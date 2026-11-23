@@ -260,3 +260,85 @@ input:focus {
         border-top-width: 70px;
     }
 }
+
+/* Layout Improvement */
+.screen {
+    gap: 10px;
+}
+
+/* First screen spacing */
+#firstScreen h1 {
+    max-width: 350px;
+    line-height: 1.3;
+    margin-bottom: 5px;
+}
+
+#firstScreen p {
+    margin-bottom: 5px;
+}
+
+/* Envelope */
+.envelope {
+    flex-shrink: 0;
+    margin: 25px 0;
+}
+
+/* Buttons */
+#openBtn,
+#surpriseBtn,
+.replay-btn {
+    min-width: 180px;
+}
+
+/* Mobile layout */
+@media (max-width: 600px) {
+    .screen {
+        min-height: 100svh;
+        padding: 20px 16px;
+        gap: 8px;
+    }
+
+    h1 {
+        font-size: 26px;
+        line-height: 1.35;
+    }
+
+    #firstScreen h1 {
+        max-width: 280px;
+    }
+
+    #firstScreen p {
+        max-width: 280px;
+        font-size: 15px;
+    }
+
+    .envelope {
+        width: 160px;
+        height: 110px;
+        margin: 22px 0;
+    }
+
+    .flap {
+        border-left-width: 80px;
+        border-right-width: 80px;
+        border-top-width: 65px;
+    }
+
+    .letter {
+        width: 85%;
+        height: 85%;
+        left: 7.5%;
+    }
+
+    button,
+    .whatsapp-btn {
+        max-width: 100%;
+        font-size: 15px;
+    }
+
+    .card {
+        max-width: 100%;
+        padding: 25px 18px;
+    }
+}
+
