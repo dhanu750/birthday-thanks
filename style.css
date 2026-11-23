@@ -1,280 +1,227 @@
-/* Reset */
+
+/* Basic Setup */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Body */
 body {
-    background: #100d1c;
-    color: white;
-    font-family: Arial, sans-serif;
     min-height: 100vh;
     overflow-x: hidden;
+    font-family: Arial, sans-serif;
+    color: white;
+    background: linear-gradient(135deg, #160e2e, #32134c, #170d2b);
 }
 
 /* Screens */
 .screen {
     min-height: 100vh;
+    width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 25px;
     text-align: center;
+    padding: 25px;
+    position: relative;
+    z-index: 2;
 }
 
 .hidden {
     display: none !important;
 }
 
-/* Background stars */
-.stars {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: 0;
+/* Headings */
+h1 {
+    font-size: 32px;
+    margin-bottom: 15px;
+    color: #ffd6ff;
+    text-shadow: 0 0 15px #d946ef;
 }
 
-.star {
-    position: absolute;
-    width: 3px;
-    height: 3px;
-    background: #fff;
-    border-radius: 50%;
-    animation: twinkle 3s infinite alternate;
-}
-
-/* Intro */
-.intro {
-    position: relative;
-    z-index: 2;
-    animation: fadeUp 1s ease;
-}
-
-.small-text {
-    color: #c8a9e9;
-    letter-spacing: 3px;
-    font-size: 12px;
-    text-transform: uppercase;
-}
-
-.intro h1 {
-    font-size: 36px;
-    margin: 20px 0 50px;
-    line-height: 1.3;
-}
-
-/* Envelope */
-.envelope {
-    position: relative;
-    width: 230px;
-    height: 150px;
-    margin: 0 auto 35px;
-    cursor: pointer;
-    transition: transform 0.3s;
-}
-
-.envelope:hover {
-    transform: translateY(-5px);
-}
-
-.envelope-back {
-    position: absolute;
-    inset: 0;
-    background: #c89be9;
-    border-radius: 8px;
-}
-
-.letter {
-    position: absolute;
-    width: 190px;
-    height: 120px;
-    background: #fff;
-    color: #7a3e9b;
-    top: 15px;
-    left: 20px;
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+p {
     font-size: 16px;
-    transition: transform 0.8s;
-}
-
-.envelope-flap {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 0;
-    border-left: 115px solid transparent;
-    border-right: 115px solid transparent;
-    border-top: 90px solid #e2b8ff;
-    transform-origin: top;
-    transition: transform 0.7s;
-    z-index: 4;
-}
-
-.envelope-front {
-    position: absolute;
-    bottom: 0;
-    width: 0;
-    height: 0;
-    border-left: 115px solid #bb84df;
-    border-right: 115px solid #bb84df;
-    border-top: 75px solid transparent;
-    border-bottom: 75px solid #d0a5ed;
-    border-radius: 0 0 8px 8px;
-    z-index: 3;
-}
-
-.heart {
-    position: absolute;
-    top: 55px;
-    left: 100px;
-    color: #ff4e9b;
-    font-size: 30px;
-    z-index: 5;
-}
-
-/* Envelope animation */
-.envelope.open .envelope-flap {
-    transform: rotateX(180deg);
-    z-index: 1;
-}
-
-.envelope.open .letter {
-    transform: translateY(-100px);
+    line-height: 1.7;
+    margin-bottom: 15px;
 }
 
 /* Buttons */
 button {
-    background: linear-gradient(135deg, #c58af5, #f17fbc);
-    color: white;
     border: none;
-    padding: 14px 25px;
+    padding: 14px 24px;
     border-radius: 30px;
-    font-size: 15px;
+    background: linear-gradient(135deg, #e879f9, #a855f7);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
     cursor: pointer;
+    margin-top: 15px;
     transition: 0.3s;
-    box-shadow: 0 0 20px rgba(194, 126, 238, 0.2);
 }
 
 button:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 25px rgba(194, 126, 238, 0.5);
+    box-shadow: 0 0 20px #d946ef;
 }
 
-button:active {
-    transform: scale(0.97);
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
 }
 
-/* Card */
+/* Envelope */
+.envelope {
+    width: 200px;
+    height: 130px;
+    background: #e879f9;
+    margin: 35px 0;
+    position: relative;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 0 30px rgba(232, 121, 249, 0.4);
+}
+
+.letter {
+    position: absolute;
+    width: 85%;
+    height: 85%;
+    background: white;
+    left: 7.5%;
+    bottom: 5%;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+    transition: 0.8s;
+}
+
+.flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    border-top: 75px solid #f0abfc;
+    transform-origin: top;
+    transition: 0.8s;
+    z-index: 3;
+}
+
+.envelope.open .flap {
+    transform: rotateX(180deg);
+}
+
+.envelope.open .letter {
+    transform: translateY(-65px);
+}
+
+/* Cards */
 .card {
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(216, 171, 255, 0.2);
-    padding: 35px 25px;
     width: 100%;
-    max-width: 420px;
+    max-width: 450px;
+    padding: 35px 25px;
+    border: 1px solid rgba(255,255,255,0.2);
     border-radius: 25px;
-    backdrop-filter: blur(12px);
-    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.2);
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 30px rgba(217,70,239,0.2);
     animation: fadeUp 0.8s ease;
-}
-
-.card h1 {
-    font-size: 30px;
-    margin: 15px 0;
-}
-
-.card p {
-    color: #d2c5e0;
-    line-height: 1.8;
-    margin: 15px 0;
-}
-
-.emoji {
-    font-size: 45px;
-    animation: float 3s ease-in-out infinite;
 }
 
 /* Input */
 input {
     width: 100%;
-    padding: 15px;
-    margin: 20px 0;
-    border: 1px solid #bd91e5;
+    padding: 14px;
+    margin-top: 15px;
     border-radius: 12px;
-    background: rgba(255, 255, 255, 0.08);
-    color: white;
+    border: 2px solid #d946ef;
     outline: none;
     font-size: 16px;
-}
-
-input::placeholder {
-    color: #b8a7ca;
+    background: rgba(255,255,255,0.95);
+    color: #222;
 }
 
 input:focus {
-    border-color: #f4a4d3;
-    box-shadow: 0 0 12px rgba(232, 153, 235, 0.2);
+    box-shadow: 0 0 15px #d946ef;
 }
 
 /* Error */
-.error {
-    color: #ff9bb8 !important;
+#errorMessage {
+    color: #ffb4c6;
     font-size: 14px;
+    margin-top: 10px;
 }
 
-/* Final card */
-.final-card {
-    max-width: 480px;
-}
-
-.celebration {
-    font-size: 55px;
-    animation: float 2s infinite;
-}
-
-.divider {
-    width: 60px;
-    height: 2px;
-    background: #d9a4fa;
-    margin: 25px auto;
+/* Final Message */
+.final-card h1 {
+    font-size: 30px;
 }
 
 .message {
-    font-size: 16px;
+    margin-top: 20px;
+    color: #f3d8ff;
 }
 
 .ending {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    margin: 25px 0;
-    color: #e5c5ff;
-    font-size: 14px;
+    color: #ffd6ff;
 }
 
-.heart-pulse {
-    color: #ff6fae;
-    animation: pulse 1s infinite;
+/* WhatsApp */
+.whatsapp-btn {
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    padding: 14px 20px;
+    background: #25D366;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 30px;
+    transition: 0.3s;
 }
 
-.final-card button {
-    margin-top: 10px;
+.whatsapp-btn:hover {
+    background: #1ebe5d;
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(37,211,102,0.3);
+}
+
+/* Replay */
+.replay-btn {
+    width: 100%;
+    margin-top: 15px;
+}
+
+/* Stars */
+.star {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 3s infinite;
+    pointer-events: none;
+}
+
+.stars {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
 }
 
 /* Animations */
 @keyframes twinkle {
-    from {
+    0%, 100% {
         opacity: 0.2;
-        transform: scale(0.7);
+        transform: scale(0.5);
     }
 
-    to {
+    50% {
         opacity: 1;
         transform: scale(1.5);
     }
@@ -292,65 +239,24 @@ input:focus {
     }
 }
 
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-10px);
-    }
-}
-
-@keyframes pulse {
-    0%, 100% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.4);
-    }
-}
-
 /* Mobile */
 @media (max-width: 480px) {
-    .intro h1 {
-        font-size: 30px;
-    }
-
-    .card {
-        padding: 28px 20px;
-    }
-
-    .card h1 {
+    h1 {
         font-size: 26px;
     }
 
+    .card {
+        padding: 25px 18px;
+    }
+
     .envelope {
-        transform: scale(0.9);
+        width: 180px;
+        height: 120px;
     }
 
-    .envelope:hover {
-        transform: scale(0.9);
+    .flap {
+        border-left-width: 90px;
+        border-right-width: 90px;
+        border-top-width: 70px;
     }
-}
-.whatsapp-btn {
-    display: inline-block;
-    width: 100%;
-    margin-top: 15px;
-    padding: 14px 20px;
-    background: #25D366;
-    color: white;
-    text-decoration: none;
-    text-align: center;
-    font-size: 15px;
-    font-weight: bold;
-    border-radius: 30px;
-    transition: 0.3s;
-}
-
-.whatsapp-btn:hover {
-    background: #1ebe5d;
-    transform: scale(1.05);
-    box-shadow: 0 0 20px rgba(37, 211, 102, 0.3);
 }
