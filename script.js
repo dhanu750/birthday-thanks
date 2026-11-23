@@ -1,4 +1,5 @@
-// Elements
+
+/* Elements */
 const firstScreen = document.getElementById("firstScreen");
 const nameScreen = document.getElementById("nameScreen");
 const thankScreen = document.getElementById("thankScreen");
@@ -14,14 +15,13 @@ const errorMessage = document.getElementById("errorMessage");
 
 const replayBtn = document.getElementById("replayBtn");
 const stars = document.getElementById("stars");
-
-// WhatsApp Button
 const welcomeBtn = document.getElementById("welcomeBtn");
 
-// Apna WhatsApp number dalein
-const myWhatsAppNumber = "9301285148";
+/* Apna WhatsApp Number */
+const myWhatsAppNumber = "91XXXXXXXXXX";
 
-// Background Stars
+
+/* Background Stars */
 function createStars() {
     stars.innerHTML = "";
 
@@ -39,7 +39,8 @@ function createStars() {
 
 createStars();
 
-// Open Letter
+
+/* Open Envelope */
 openBtn.addEventListener("click", function () {
     envelope.classList.add("open");
     openBtn.disabled = true;
@@ -52,7 +53,8 @@ openBtn.addEventListener("click", function () {
     }, 900);
 });
 
-// Show Surprise
+
+/* Show Thank You */
 function showSurprise() {
     const name = nameInput.value.trim();
 
@@ -66,23 +68,37 @@ function showSurprise() {
 
     thankHeading.textContent = "Thank You, " + name + " ❤️";
 
+    /* WhatsApp Message */
+    const message =
+        "Hello! " + name +
+        " wishes ke liye Thank You website dekhi. Welcome 👋";
+
+    const whatsappURL =
+        "https://wa.me/" + myWhatsAppNumber +
+        "?text=" + encodeURIComponent(message);
+
+    welcomeBtn.href = whatsappURL;
+
     nameScreen.classList.add("hidden");
     thankScreen.classList.remove("hidden");
 
     createConfetti();
 }
 
-// Surprise Button
+
+/* Surprise Button */
 surpriseBtn.addEventListener("click", showSurprise);
 
-// Enter Key
+
+/* Enter Key */
 nameInput.addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
         showSurprise();
     }
 });
 
-// Confetti
+
+/* Confetti */
 function createConfetti() {
     const emojis = ["✨", "💖", "🎉", "💕", "🌸", "🎊"];
 
@@ -126,7 +142,8 @@ function createConfetti() {
     }
 }
 
-// Replay
+
+/* Replay */
 replayBtn.addEventListener("click", function () {
     thankScreen.classList.add("hidden");
     nameScreen.classList.add("hidden");
@@ -138,22 +155,7 @@ replayBtn.addEventListener("click", function () {
     nameInput.value = "";
     errorMessage.textContent = "";
 
+    welcomeBtn.href = "#";
+
     createStars();
-});
-
-// Send Welcome on WhatsApp
-welcomeBtn.addEventListener("click", function (event) {
-    event.preventDefault();
-
-    const name = nameInput.value.trim();
-
-    const message =
-        "Hello! " + name +
-        " wishes ke liye Thank You website dekhi. Welcome 👋";
-
-    const whatsappURL =
-        "https://wa.me/" + myWhatsAppNumber +
-        "?text=" + encodeURIComponent(message);
-
-    window.open(whatsappURL, "_blank");
 });
