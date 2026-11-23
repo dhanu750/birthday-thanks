@@ -126,7 +126,7 @@ function showSurprise() {
 
     const message =
         
-        "!  ❤️\n\nWELCOME 😊";
+        "  ❤️\n\nWELCOME 😊";
 
     const whatsappURL =
         "https://wa.me/" +
