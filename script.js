@@ -15,7 +15,13 @@ const errorMessage = document.getElementById("errorMessage");
 const replayBtn = document.getElementById("replayBtn");
 const stars = document.getElementById("stars");
 
-// Background stars
+// WhatsApp Button
+const welcomeBtn = document.getElementById("welcomeBtn");
+
+// Apna WhatsApp number dalein
+const myWhatsAppNumber = "91XXXXXXXXXX";
+
+// Background Stars
 function createStars() {
     stars.innerHTML = "";
 
@@ -33,10 +39,9 @@ function createStars() {
 
 createStars();
 
-// Open letter
+// Open Letter
 openBtn.addEventListener("click", function () {
     envelope.classList.add("open");
-
     openBtn.disabled = true;
 
     setTimeout(function () {
@@ -47,7 +52,7 @@ openBtn.addEventListener("click", function () {
     }, 900);
 });
 
-// Show surprise
+// Show Surprise
 function showSurprise() {
     const name = nameInput.value.trim();
 
@@ -67,10 +72,10 @@ function showSurprise() {
     createConfetti();
 }
 
-// Button click
+// Surprise Button
 surpriseBtn.addEventListener("click", showSurprise);
 
-// Enter key
+// Enter Key
 nameInput.addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
         showSurprise();
@@ -100,10 +105,12 @@ function createConfetti() {
 
         confetti.animate(
             [
-                { transform: "translateY(0) rotate(0deg)", opacity: 1 },
                 {
-                    transform:
-                        "translateY(110vh) rotate(720deg)",
+                    transform: "translateY(0) rotate(0deg)",
+                    opacity: 1
+                },
+                {
+                    transform: "translateY(110vh) rotate(720deg)",
                     opacity: 0
                 }
             ],
@@ -128,20 +135,14 @@ replayBtn.addEventListener("click", function () {
     envelope.classList.remove("open");
     openBtn.disabled = false;
 
-
-    const welcomeBtn = document.getElementById("welcomeBtn");
-
-
+    nameInput.value = "";
     errorMessage.textContent = "";
 
     createStars();
 });
-const welcomeBtn = document.getElementById("welcomeBtn");
 
-const myWhatsAppNumber = "91XXXXXXXXXX";
-
+// Send Welcome on WhatsApp
 welcomeBtn.addEventListener("click", function (event) {
-
     event.preventDefault();
 
     const name = nameInput.value.trim();
@@ -155,5 +156,4 @@ welcomeBtn.addEventListener("click", function (event) {
         "?text=" + encodeURIComponent(message);
 
     window.open(whatsappURL, "_blank");
-
 });
