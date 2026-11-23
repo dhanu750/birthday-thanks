@@ -131,10 +131,18 @@ replayBtn.addEventListener("click", function () {
 
     const welcomeBtn = document.getElementById("welcomeBtn");
 
-// Apna WhatsApp number likho (country code ke saath)
-const myWhatsAppNumber = "9301285148";
 
-welcomeBtn.addEventListener("click", function () {
+    errorMessage.textContent = "";
+
+    createStars();
+});
+const welcomeBtn = document.getElementById("welcomeBtn");
+
+const myWhatsAppNumber = "91XXXXXXXXXX";
+
+welcomeBtn.addEventListener("click", function (event) {
+
+    event.preventDefault();
 
     const name = nameInput.value.trim();
 
@@ -146,11 +154,6 @@ welcomeBtn.addEventListener("click", function () {
         "https://wa.me/" + myWhatsAppNumber +
         "?text=" + encodeURIComponent(message);
 
-    welcomeBtn.href = whatsappURL;
-});
+    window.open(whatsappURL, "_blank");
 
-    nameInput.value = "";
-    errorMessage.textContent = "";
-
-    createStars();
 });
