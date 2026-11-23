@@ -88,14 +88,33 @@ function showSurprise() {
     const name = nameInput.value.trim();
 
     if (name === "") {
-
-        errorMessage.textContent =
-            "Please enter your name first! ✨";
-
+        errorMessage.textContent = "Please enter your name first! ✨";
         nameInput.focus();
-
         return;
     }
+
+    errorMessage.textContent = "";
+
+    thankHeading.textContent = "Welcome 👋";
+
+    // WhatsApp message
+    const message = "Welcome 👋";
+
+    const whatsappURL =
+        "https://wa.me/" +
+        myWhatsAppNumber +
+        "?text=" +
+        encodeURIComponent(message);
+
+    welcomeBtn.href = whatsappURL;
+
+    // Screen change
+    nameScreen.classList.add("hidden");
+    thankScreen.classList.remove("hidden");
+
+    // Confetti
+    createConfetti();
+}
 
     errorMessage.textContent = "";
 
