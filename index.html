@@ -1,100 +1,80 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Msg Response</title>
+    <title>Birthday Thank You</title>
     <link rel="stylesheet" href="style.css">
-</head> 
+</head>
 <body>
 
-    <!-- Background particles -->
     <div class="stars" id="stars"></div>
 
     <!-- First Screen -->
     <section class="screen" id="firstScreen">
-        <div class="intro">
-            <p class="small-text">A little something for you</p>
-            <h1>You've got a<br>special letter ✨</h1>
+        <h1>A Little Surprise ✨</h1>
+        <p>You have a special message waiting...</p>
 
-            <div class="envelope" id="envelope">
-                <div class="envelope-back"></div>
-                <div class="letter">
-                    <span>With Love 💌</span>
-                </div>
-                <div class="envelope-flap"></div>
-                <div class="envelope-front"></div>
-                <div class="heart">♥</div>
+        <div class="envelope" id="envelope">
+            <div class="letter">
+                <span>💌</span>
             </div>
-
-            <button class="open-btn" id="openBtn">
-                Open Your Letter
-            </button>
+            <div class="flap"></div>
         </div>
+
+        <button id="openBtn">Open My Letter 💌</button>
     </section>
 
     <!-- Name Screen -->
     <section class="screen hidden" id="nameScreen">
         <div class="card">
-            <div class="emoji">✨</div>
-            <h1>A tiny question...</h1>
-            <p>Before opening your surprise,<br>tell me your name.</p>
+            <h1>Hey There! ✨</h1>
+            <p>Before I reveal my message, tell me your name.</p>
 
             <input
                 type="text"
                 id="nameInput"
                 placeholder="Enter your name..."
-                maxlength="40"
+                maxlength="50"
                 autocomplete="off"
             >
 
-            <button id="surpriseBtn">
-                Reveal My Surprise ✨
-            </button>
+            <p id="errorMessage"></p>
 
-            <p class="error" id="errorMessage"></p>
+            <button id="surpriseBtn">Reveal Surprise 💖</button>
         </div>
     </section>
 
     <!-- Thank You Screen -->
     <section class="screen hidden" id="thankScreen">
         <div class="card final-card">
-            <div class="celebration">🎉</div>
 
-            <p class="small-text">A message just for you</p>
-
-            <h1 id="thankHeading">Thank You!</h1>
-
-            <div class="divider"></div>
+            <h1 id="thankHeading">Thank You ❤️</h1>
 
             <p class="message">
-                Thank you for remembering my birthday
-                and sending me your lovely wishes.
-                <br><br>
-                Your wishes made my day a little
-                more special and memorable.
-                <br><br>
-                I'm truly grateful for your kindness. ❤️
+                Thank you for making my birthday
+                a little more special with your wishes.
             </p>
 
-            <div class="ending">
-                <span>Made with</span>
-                <span class="heart-pulse">♥</span>
-                <span>and gratitude</span>
-            </div>
-            <a
-    id="welcomeBtn"
-    class="whatsapp-btn"
-    href="#"
-    target="_blank"
-    rel="noopener noreferrer"
->
-    Send Welcome 👋
-</a>
+            <p class="ending">
+                Your kindness means a lot! ✨
+            </p>
 
-            <button id="replayBtn">
-                Replay the Surprise ↻
+            <a
+                id="welcomeBtn"
+                class="whatsapp-btn"
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Send Welcome 👋
+            </a>
+
+            <button id="replayBtn" class="replay-btn">
+                Replay ↻
             </button>
+
         </div>
     </section>
 
