@@ -18,7 +18,7 @@ const stars = document.getElementById("stars");
 const welcomeBtn = document.getElementById("welcomeBtn");
 
 /* Apna WhatsApp Number */
-const myWhatsAppNumber = "91XXXXXXXXXX";
+const myWhatsAppNumber = "9301285148";
 
 
 /* Background Stars */
