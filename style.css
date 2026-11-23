@@ -334,3 +334,23 @@ input:focus {
         transform: scale(0.9);
     }
 }
+.whatsapp-btn {
+    display: inline-block;
+    width: 100%;
+    margin-top: 15px;
+    padding: 14px 20px;
+    background: #25D366;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 30px;
+    transition: 0.3s;
+}
+
+.whatsapp-btn:hover {
+    background: #1ebe5d;
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(37, 211, 102, 0.3);
+}
