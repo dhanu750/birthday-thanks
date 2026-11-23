@@ -342,3 +342,52 @@ input:focus {
     }
 }
 
+/* FIX MOBILE FIRST SCREEN */
+@media (max-width: 600px) {
+
+    #firstScreen {
+        display: flex;
+        flex-direction: column !important;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 12px;
+        padding: 25px 20px;
+        overflow: hidden;
+    }
+
+    #firstScreen h1 {
+        width: 100%;
+        max-width: 320px;
+        margin: 0;
+        font-size: 30px;
+        text-align: center;
+    }
+
+    #firstScreen p {
+        width: 100%;
+        max-width: 300px;
+        margin: 0;
+        font-size: 16px;
+        text-align: center;
+    }
+
+    #firstScreen .envelope {
+        width: 200px;
+        height: 130px;
+        margin: 20px auto;
+        flex-shrink: 0;
+    }
+
+    #firstScreen .flap {
+        border-left: 100px solid transparent;
+        border-right: 100px solid transparent;
+        border-top: 75px solid #f0abfc;
+    }
+
+    #firstScreen #openBtn {
+        margin: 10px auto 0;
+    }
+}
+
+
