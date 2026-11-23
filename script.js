@@ -132,7 +132,7 @@ replayBtn.addEventListener("click", function () {
     const welcomeBtn = document.getElementById("welcomeBtn");
 
 // Apna WhatsApp number likho (country code ke saath)
-const myWhatsAppNumber = "91XXXXXXXXXX";
+const myWhatsAppNumber = "9301285148";
 
 welcomeBtn.addEventListener("click", function () {
 
