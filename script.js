@@ -128,6 +128,27 @@ replayBtn.addEventListener("click", function () {
     envelope.classList.remove("open");
     openBtn.disabled = false;
 
+
+    const welcomeBtn = document.getElementById("welcomeBtn");
+
+// Apna WhatsApp number likho (country code ke saath)
+const myWhatsAppNumber = "91XXXXXXXXXX";
+
+welcomeBtn.addEventListener("click", function () {
+
+    const name = nameInput.value.trim();
+
+    const message =
+        "Hello! " + name +
+        " wishes ke liye Thank You website dekhi. Welcome 👋";
+
+    const whatsappURL =
+        "https://wa.me/" + myWhatsAppNumber +
+        "?text=" + encodeURIComponent(message);
+
+    welcomeBtn.href = whatsappURL;
+});
+
     nameInput.value = "";
     errorMessage.textContent = "";
 
