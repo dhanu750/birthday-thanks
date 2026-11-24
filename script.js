@@ -2,7 +2,7 @@
 /* =========================
    1. HTML ELEMENTS
 ========================= */
-
+ 
 const firstScreen = document.getElementById("firstScreen");
 const nameScreen = document.getElementById("nameScreen");
 const thankScreen = document.getElementById("thankScreen");
