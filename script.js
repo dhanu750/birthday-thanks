@@ -19,7 +19,7 @@ const errorMessage = document.getElementById("errorMessage");
 const replayBtn = document.getElementById("replayBtn");
 const stars = document.getElementById("stars");
 const welcomeBtn = document.getElementById("welcomeBtn");
-
+ s
 
 /* =========================
    2. WHATSAPP NUMBER
