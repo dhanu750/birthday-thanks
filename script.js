@@ -19,13 +19,12 @@ const errorMessage = document.getElementById("errorMessage");
 const replayBtn = document.getElementById("replayBtn");
 const stars = document.getElementById("stars");
 const welcomeBtn = document.getElementById("welcomeBtn");
- s
+
 
 /* =========================
    2. WHATSAPP NUMBER
 ========================= */
 
-// Apna WhatsApp number country code ke saath
 const myWhatsAppNumber = "919301285148";
 
 
@@ -69,7 +68,6 @@ openBtn.addEventListener("click", function () {
     setTimeout(function () {
 
         firstScreen.classList.add("hidden");
-
         nameScreen.classList.remove("hidden");
 
         nameInput.focus();
@@ -88,16 +86,21 @@ function showSurprise() {
     const name = nameInput.value.trim();
 
     if (name === "") {
-        errorMessage.textContent = "Please enter your name first! ✨";
+
+        errorMessage.textContent =
+            "Please enter your name first! ✨";
+
         nameInput.focus();
         return;
     }
 
     errorMessage.textContent = "";
 
-    thankHeading.textContent = "Welcome 👋";
+    thankHeading.textContent =
+        "Thank You, " + name + " ❤️";
 
-    // WhatsApp message
+    // WhatsApp Welcome Message
+
     const message = "Welcome 👋";
 
     const whatsappURL =
@@ -108,43 +111,12 @@ function showSurprise() {
 
     welcomeBtn.href = whatsappURL;
 
-    // Screen change
+    // Screen Change
+
     nameScreen.classList.add("hidden");
     thankScreen.classList.remove("hidden");
 
     // Confetti
-    createConfetti();
-}
-
-    errorMessage.textContent = "";
-
-    thankHeading.textContent =
-        "Thank You, " + name + " ❤️";
-
-
-    /* WhatsApp Message */
-
-    const message =
-        
-        "  ❤️\n\nWELCOME 😊";
-
-    const whatsappURL =
-        "https://wa.me/" +
-        myWhatsAppNumber +
-        "?text=" +
-        encodeURIComponent(message);
-
-    welcomeBtn.href = whatsappURL;
-
-
-    /* Screen Change */
-
-    nameScreen.classList.add("hidden");
-
-    thankScreen.classList.remove("hidden");
-
-
-    /* Confetti */
 
     createConfetti();
 
@@ -165,9 +137,7 @@ surpriseBtn.addEventListener("click", showSurprise);
 nameInput.addEventListener("keydown", function (event) {
 
     if (event.key === "Enter") {
-
         showSurprise();
-
     }
 
 });
@@ -189,16 +159,13 @@ function createConfetti() {
             emojis[Math.floor(Math.random() * emojis.length)];
 
         confetti.style.position = "fixed";
-
         confetti.style.left = Math.random() * 100 + "vw";
-
         confetti.style.top = "-30px";
 
         confetti.style.fontSize =
             Math.random() * 15 + 15 + "px";
 
         confetti.style.zIndex = "100";
-
         confetti.style.pointerEvents = "none";
 
         document.body.appendChild(confetti);
@@ -227,9 +194,7 @@ function createConfetti() {
         );
 
         setTimeout(function () {
-
             confetti.remove();
-
         }, duration * 1000);
 
     }
@@ -244,42 +209,26 @@ function createConfetti() {
 replayBtn.addEventListener("click", function () {
 
     thankScreen.classList.add("hidden");
-
     nameScreen.classList.add("hidden");
 
     firstScreen.classList.remove("hidden");
 
-
-    /* Reset Envelope */
+    // Reset Envelope
 
     envelope.classList.remove("open");
-
     openBtn.disabled = false;
 
-
-    /* Reset Input */
+    // Reset Input
 
     nameInput.value = "";
-
     errorMessage.textContent = "";
 
-
-    /* Reset WhatsApp Link */
+    // Reset WhatsApp Link
 
     welcomeBtn.href = "#";
 
-
-    /* Refresh Stars */
+    // Refresh Stars
 
     createStars();
 
 });
-
-
-/* =========================
-   10. WHATSAPP BUTTON
-========================= */
-
-// WhatsApp button HTML mein href pehle se
-// showSurprise() ke andar set kiya ja chuka hai.
-
