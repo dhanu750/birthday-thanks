@@ -1,8 +1,8 @@
 
-/* =========================
-   1. HTML ELEMENTS
-========================= */
- 
+// ===============================
+// 1. HTML ELEMENTS
+// ===============================
+
 const firstScreen = document.getElementById("firstScreen");
 const nameScreen = document.getElementById("nameScreen");
 const thankScreen = document.getElementById("thankScreen");
@@ -21,16 +21,16 @@ const stars = document.getElementById("stars");
 const welcomeBtn = document.getElementById("welcomeBtn");
 
 
-/* =========================
-   2. WHATSAPP NUMBER
-========================= */
+// ===============================
+// 2. WHATSAPP NUMBER
+// ===============================
 
 const myWhatsAppNumber = "919301285148";
 
 
-/* =========================
-   3. BACKGROUND STARS
-========================= */
+// ===============================
+// 3. BACKGROUND STARS
+// ===============================
 
 function createStars() {
 
@@ -46,7 +46,9 @@ function createStars() {
 
         star.style.left = Math.random() * 100 + "%";
         star.style.top = Math.random() * 100 + "%";
-        star.style.animationDelay = Math.random() * 3 + "s";
+
+        star.style.animationDelay =
+            Math.random() * 3 + "s";
 
         stars.appendChild(star);
     }
@@ -55,9 +57,9 @@ function createStars() {
 createStars();
 
 
-/* =========================
-   4. OPEN MY LETTER
-========================= */
+// ===============================
+// 4. OPEN MY LETTER
+// ===============================
 
 openBtn.addEventListener("click", function () {
 
@@ -68,6 +70,7 @@ openBtn.addEventListener("click", function () {
     setTimeout(function () {
 
         firstScreen.classList.add("hidden");
+
         nameScreen.classList.remove("hidden");
 
         nameInput.focus();
@@ -77,9 +80,9 @@ openBtn.addEventListener("click", function () {
 });
 
 
-/* =========================
-   5. SHOW SURPRISE
-========================= */
+// ===============================
+// 5. REVEAL SURPRISE
+// ===============================
 
 function showSurprise() {
 
@@ -91,6 +94,7 @@ function showSurprise() {
             "Please enter your name first! ✨";
 
         nameInput.focus();
+
         return;
     }
 
@@ -98,6 +102,7 @@ function showSurprise() {
 
     thankHeading.textContent =
         "Thank You, " + name + " ❤️";
+
 
     // WhatsApp Welcome Message
 
@@ -111,10 +116,13 @@ function showSurprise() {
 
     welcomeBtn.href = whatsappURL;
 
+
     // Screen Change
 
     nameScreen.classList.add("hidden");
+
     thankScreen.classList.remove("hidden");
+
 
     // Confetti
 
@@ -123,33 +131,37 @@ function showSurprise() {
 }
 
 
-/* =========================
-   6. SURPRISE BUTTON
-========================= */
+// ===============================
+// 6. BUTTON CLICK
+// ===============================
 
 surpriseBtn.addEventListener("click", showSurprise);
 
 
-/* =========================
-   7. ENTER KEY
-========================= */
+// ===============================
+// 7. ENTER KEY
+// ===============================
 
 nameInput.addEventListener("keydown", function (event) {
 
     if (event.key === "Enter") {
+
         showSurprise();
+
     }
 
 });
 
 
-/* =========================
-   8. CONFETTI
-========================= */
+// ===============================
+// 8. CONFETTI
+// ===============================
 
 function createConfetti() {
 
-    const emojis = ["✨", "💖", "🎉", "💕", "🌸", "🎊"];
+    const emojis = [
+        "✨", "💖", "🎉", "💕", "🌸", "🎊"
+    ];
 
     for (let i = 0; i < 35; i++) {
 
@@ -159,13 +171,17 @@ function createConfetti() {
             emojis[Math.floor(Math.random() * emojis.length)];
 
         confetti.style.position = "fixed";
-        confetti.style.left = Math.random() * 100 + "vw";
+
+        confetti.style.left =
+            Math.random() * 100 + "vw";
+
         confetti.style.top = "-30px";
 
         confetti.style.fontSize =
             Math.random() * 15 + 15 + "px";
 
         confetti.style.zIndex = "100";
+
         confetti.style.pointerEvents = "none";
 
         document.body.appendChild(confetti);
@@ -194,7 +210,9 @@ function createConfetti() {
         );
 
         setTimeout(function () {
+
             confetti.remove();
+
         }, duration * 1000);
 
     }
@@ -202,30 +220,37 @@ function createConfetti() {
 }
 
 
-/* =========================
-   9. REPLAY
-========================= */
+// ===============================
+// 9. REPLAY BUTTON
+// ===============================
 
 replayBtn.addEventListener("click", function () {
 
     thankScreen.classList.add("hidden");
+
     nameScreen.classList.add("hidden");
 
     firstScreen.classList.remove("hidden");
 
+
     // Reset Envelope
 
     envelope.classList.remove("open");
+
     openBtn.disabled = false;
 
-    // Reset Input
+
+    // Reset Name
 
     nameInput.value = "";
+
     errorMessage.textContent = "";
+
 
     // Reset WhatsApp Link
 
     welcomeBtn.href = "#";
+
 
     // Refresh Stars
 
